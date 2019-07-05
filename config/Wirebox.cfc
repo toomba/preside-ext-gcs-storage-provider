@@ -2,23 +2,23 @@ component {
 
 
 	public void function configure( binder ) {
-		var s3StorageSettings = binder.getColdbox().getSetting( "s3StorageProvider" );
+		var gcsStorageSettings = binder.getColdbox().getSetting( "gcsStorageProvider" );
 
-		s3StorageSettings.bucket    = s3StorageSettings.bucket    ?: ""
-		s3StorageSettings.accessKey = s3StorageSettings.accessKey ?: ""
-		s3StorageSettings.secretKey = s3StorageSettings.secretKey ?: ""
-		s3StorageSettings.region    = s3StorageSettings.region    ?: "eu"
-		s3StorageSettings.subpath   = s3StorageSettings.subpath   ?: ""
-		s3StorageSettings.rootUrl   = s3StorageSettings.rootUrl   ?: "https://storage.googleapis.com";
-
-		if ( Len( s3StorageSettings.accessKey ?: "" ) && Len( s3StorageSettings.secretKey ?: "" ) && Len( s3StorageSettings.bucket ?: "" ) ) {
-			binder.map( "assetStorageProvider" ).asSingleton().to( "s3StorageProvider.services.S3StorageProvider" ).noAutoWire().initWith(
-				  s3bucket    = s3StorageSettings.bucket
-				, s3accessKey = s3StorageSettings.accessKey
-				, s3secretKey = s3StorageSettings.secretKey
-				, s3region    = s3StorageSettings.region
-				, s3rootUrl   = s3StorageSettings.rootUrl
-				, s3subpath   = s3StorageSettings.subpath
+		gcsStorageSettings.bucket    = gcsStorageSettings.bucket    ?: ""
+		gcsStorageSettings.accessKey = gcsStorageSettings.accessKey ?: ""
+		gcsStorageSettings.secretKey = gcsStorageSettings.secretKey ?: ""
+		gcsStorageSettings.region    = gcsStorageSettings.region    ?: "eu"
+		gcsStorageSettings.subpath   = gcsStorageSettings.subpath   ?: ""
+		gcsStorageSettings.rootUrl   = gcsStorageSettings.rootUrl   ?: "https://storage.googleapis.com";
+writeDump(gcsStorageSettings);abort;
+		if ( Len( gcsStorageSettings.accessKey ?: "" ) && Len( gcsStorageSettings.secretKey ?: "" ) && Len( gcsStorageSettings.bucket ?: "" ) ) {
+			binder.map( "assetStorageProvider" ).asSingleton().to( "gcsStorageProvider.services.GCSStorageProvider" ).noAutoWire().initWith(
+				  gcsbucket    = gcsStorageSettings.bucket
+				, gcsaccessKey = gcsStorageSettings.accessKey
+				, gcssecretKey = gcsStorageSettings.secretKey
+				, gcsregion    = gcsStorageSettings.region
+				, gcsrootUrl   = gcsStorageSettings.rootUrl
+				, gcssubpath   = gcsStorageSettings.subpath
 			);
 		}
 
