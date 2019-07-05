@@ -1,5 +1,7 @@
 # Preside GCS Storage Provider
 
+Extension based on https://github.com/pixl8/preside-ext-s3-storage-provider
+
 The GCS Storage Provider for Preside provides the best way to integrate GCS with your Preside applications. While you can use native Lucee GCS mappings, this method has the following advantages:
 
 * More intuitive to configure
