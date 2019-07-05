@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form i18nBaseUri="storage-providers.s3:">
+    <tab id="default">
+        <fieldset id="s3">
+            <field sortorder="10" name="s3accessKey" control="textinput" required="true" />
+            <field sortorder="20" name="s3secretKey" control="password"  required="true" outputSavedValue="true" />
+            <field sortorder="30" name="s3region"    control="textinput" required="true" />
+            <field sortorder="40" name="s3rootUrl"   control="textinput" required="true" />
+            <field sortorder="50" name="s3bucket"    control="textinput" required="true" />
+            <field sortorder="60" name="s3subpath"   control="textinput" required="false" />
+        </fieldset>
+    </tab>
+</form>

@@ -1,0 +1,21 @@
+{
+    "name":"Preside Extension: GCS Storage Provider",
+    "type":"preside-extensions",
+    "version":"1.0.0",
+    "location":"https://s3.eu-west-2.amazonaws.com/pixl8-public-packages/s3-storage-provider/v0.9.2.zip",
+    "private":false,
+    "author":"Toomba",
+    "directory":"application/extensions",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/toomba/preside-ext-gcs-storage-provider"
+    },
+    "slug": "preside-ext-gcs-storage-provider",
+    "projectURL":"https://github.com/toomba/preside-ext-gcs-storage-provider",
+    "ignore":[
+        ".git/*",
+        ".gitignore",
+        ".travis.yml",
+        ".twgit_features_subject"
+    ]
+}

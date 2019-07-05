@@ -1,0 +1,6 @@
+{
+	  "id": "preside-ext-gcs-storage-provider"
+	, "title": "GCS Sorage Provider"
+	, "author"    : "Toomba"
+	, "version"   : "1.0.0"
+}
