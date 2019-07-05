@@ -1,8 +1,8 @@
 {
     "name":"Preside Extension: GCS Storage Provider",
     "type":"preside-extensions",
-    "version":"1.0.2",
-    "location":"https://github.com/toomba/preside-ext-gcs-storage-provider/archive/1.0.2.zip",
+    "version":"1.0.3",
+    "location":"https://github.com/toomba/preside-ext-gcs-storage-provider/archive/1.0.3.zip",
     "private":false,
     "author":"Toomba",
     "directory":"application/extensions",
