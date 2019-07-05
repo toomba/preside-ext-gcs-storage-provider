@@ -10,7 +10,7 @@ component {
 		gcsStorageSettings.region    = gcsStorageSettings.region    ?: "eu"
 		gcsStorageSettings.subpath   = gcsStorageSettings.subpath   ?: ""
 		gcsStorageSettings.rootUrl   = gcsStorageSettings.rootUrl   ?: "https://storage.googleapis.com";
-writeDump(gcsStorageSettings);abort;
+
 		if ( Len( gcsStorageSettings.accessKey ?: "" ) && Len( gcsStorageSettings.secretKey ?: "" ) && Len( gcsStorageSettings.bucket ?: "" ) ) {
 			binder.map( "assetStorageProvider" ).asSingleton().to( "gcsStorageProvider.services.GCSStorageProvider" ).noAutoWire().initWith(
 				  gcsbucket    = gcsStorageSettings.bucket
