@@ -10,7 +10,7 @@
         "type":"git",
         "URL":"https://github.com/toomba/preside-ext-gcs-storage-provider"
     },
-    "slug": "preside-ext-gcs-storage-provider",
+    "slug":"preside-ext-gcs-storage-provider",
     "projectURL":"https://github.com/toomba/preside-ext-gcs-storage-provider",
     "ignore":[
         ".git/*",

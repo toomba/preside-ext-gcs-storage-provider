@@ -1,7 +1,7 @@
 component {
-	this.title     = "Pixl8 CRM Base";
-	this.author    = "Pixl8 Interactive, Ltd";
-	this.cfmapping = "s3StorageProvider";
+	this.title     = "Toomba preside ext GCS";
+	this.author    = "Toomba";
+	this.cfmapping = "gcsStorageProvider";
 
 	function configure(){}
 }

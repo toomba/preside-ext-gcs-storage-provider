@@ -10,24 +10,24 @@ component implements="preside.system.services.fileStorage.StorageProvider" displ
 
 // CONSTRUCTOR
 	public any function init(
-		  required string s3bucket
-		, required string s3accessKey
-		, required string s3secretKey
-		,          string s3region          = "us-west-1"
-		,          string s3rootUrl         = "https://s3-#arguments.s3region#.amazonaws.com"
-		,          string s3subpath         = ""
-		,          string s3publicRootPath  = "/public"
-		,          string s3privateRootPath = "/private"
-		,          string s3trashRootPath   = "/.trash"
+		  required string gcsbucket
+		, required string gcsaccessKey
+		, required string gcssecretKey
+		,          string gcsregion          = "eu"
+		,          string gcsrootUrl         = "https://storage.googleapis.com"
+		,          string gcssubpath         = ""
+		,          string gcspublicRootPath  = "/public"
+		,          string gcsprivateRootPath = "/private"
+		,          string gcstrashRootPath   = "/.trash"
 	){
-		_setRegion( arguments.s3region );
-		_setBucket( arguments.s3bucket );
-		_setPublicDirectory( arguments.s3subpath & arguments.s3publicRootPath );
-		_setPrivateDirectory( arguments.s3subpath & arguments.s3privateRootPath );
-		_setTrashDirectory( arguments.s3subpath & arguments.s3trashRootPath );
-		_setRootUrl( arguments.s3rootUrl );
+		_setRegion( arguments.gcsregion );
+		_setBucket( arguments.gcsbucket );
+		_setPublicDirectory( arguments.gcssubpath & arguments.gcspublicRootPath );
+		_setPrivateDirectory( arguments.gcssubpath & arguments.gcsprivateRootPath );
+		_setTrashDirectory( arguments.gcssubpath & arguments.gcstrashRootPath );
+		_setRootUrl( arguments.gcsrootUrl );
 
-		_setupS3Service( arguments.s3accessKey, arguments.s3secretKey, arguments.s3region );
+		_setupS3Service( arguments.gcsaccessKey, arguments.gcssecretKey, arguments.gcsregion );
 
 		return this;
 	}
@@ -304,7 +304,7 @@ component implements="preside.system.services.fileStorage.StorageProvider" displ
 	private any function _getCache() {
 		if ( !StructKeyExists( variables, "_cache" ) ) {
 			if ( StructKeyExists( application, "cbBootstrap" ) && IsDefined( 'application.cbBootstrap.getController' ) ) {
-				variables._cache = application.cbBootstrap.getController().getCachebox().getCache( "s3StorageProviderCache" );
+				variables._cache = application.cbBootstrap.getController().getCachebox().getCache( "gcsStorageProviderCache" );
 			}
 		}
 
