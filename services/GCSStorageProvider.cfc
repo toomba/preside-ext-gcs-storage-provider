@@ -155,7 +155,16 @@ component implements="preside.system.services.fileStorage.StorageProvider" displ
 		try{
 			_getS3Service().putObject( _getBucket(), s3Object );
 		}catch(any e){
-			//writeDump(e);abort;
+			var _skipError = false;
+			if(structKeyExists(e, "ErrorCode") && structKeyExists(e, "ErrorMessage")){
+				//SKIP GOOGLE SPECIFIC ERROR
+				if(e.ErrorCode == "InvalidArgument" && e.ErrorMessage == "Invalid argument. Invalid owner Google Storage Id"){
+					_skipError = true;
+				}
+			}
+			if(!_skipError){
+				throw(e);
+			}
 		}
 
 		var cacheKey = _getCacheKey( argumentCollection=arguments );
@@ -181,7 +190,16 @@ component implements="preside.system.services.fileStorage.StorageProvider" displ
 		try{
 			_getS3Service().moveObject( _getBucket(), originalPath, _getBucket(), newS3Object, true );
 		}catch(any e){
-			//writeDump(e);abort;
+			var _skipError = false;
+			if(structKeyExists(e, "ErrorCode") && structKeyExists(e, "ErrorMessage")){
+				//SKIP GOOGLE SPECIFIC ERROR
+				if(e.ErrorCode == "InvalidArgument" && e.ErrorMessage == "Invalid argument. Invalid owner Google Storage Id"){
+					_skipError = true;
+				}
+			}
+			if(!_skipError){
+				throw(e);
+			}
 		}
 		_clearFromCache( _getCacheKey( argumentCollection=arguments ) );
 
