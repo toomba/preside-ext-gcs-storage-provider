@@ -97,9 +97,8 @@ component implements="preside.system.services.fileStorage.StorageProvider" displ
 					};
 				}
 			}
-		} catch( any e ) {
-			return {};
-		}
+		} catch( any e ) {}
+		return {};
 	}
 
 	public boolean function objectExists( required string path, boolean trashed=false, boolean private=false ){
